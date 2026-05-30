@@ -19,7 +19,6 @@ class Solution {
             {
                 ans.add(number); 
             }
-            return;
         }
 
         for(int i=0;i<digits.length;i++)
