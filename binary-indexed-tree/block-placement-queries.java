@@ -25,9 +25,11 @@ class Solution {
                     int gap=obs-prev;
                     if(obs<=row[0])
                     {
-                        else if(gap>=row[2])
-                        canPlace=true;
-                        prev=obs;
+                        if(gap>=row[2])
+                        {
+                            canPlace=true;
+                            prev=obs;
+                        }
                     }
                     else 
                     break;
