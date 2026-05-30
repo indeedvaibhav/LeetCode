@@ -17,7 +17,7 @@ class Solution {
             int number = Integer.parseInt(current); 
             if(number>=100 && number%2==0)
             {
-                ans.Add(number); 
+                ans.add(number); 
             }
             return;
         }
