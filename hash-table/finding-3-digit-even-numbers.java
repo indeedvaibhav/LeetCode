@@ -4,13 +4,13 @@ class Solution {
     public int[] findEvenNumbers(int[] digits) {
         String s = "";
         boolean[] unused;
-        for (int i = 0; i < digits.length; i++)
-            unused[i] = false;
-        int[] result = solve(digits, s, unused);    
+        
+        int[] result = solve(digits, s);    
         return result;
 
     }
- 
+ for (int i = 0; i < digits.length; i++)
+            unused[i] = false;
     int[] solve(int[] digits, String current, int[] unused) {
         if(current.length()==3)
         {
