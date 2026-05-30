@@ -28,8 +28,9 @@ class Solution {
                         if(gap>=row[2])
                         {
                             canPlace=true;
-                            prev=obs;
+                            
                         }
+                        prev=obs;
                     }
                     else 
                     break;
