@@ -9,7 +9,6 @@ class Solution {
     }
     public List<Boolean> check(int[][] queries)
     {
-        int prev=0;
         for(int[] row: queries)
         {
             if(row[0]==1)
@@ -19,18 +18,19 @@ class Solution {
 
             else
             {
+                int prev=0;
                 boolean canPlace=false;
                 for(int obs: obstacles)
                 {
                     int gap=obs-prev;
-                    if(obs<=row[0])
+                    if(obs<=row[1])
                     {
                         if(gap>=row[2])
                         {
                             canPlace=true;
-                            prev=obs;
+                            break;
                         }
-                        
+                        prev=obs;
                     }
                     else 
                     break;
