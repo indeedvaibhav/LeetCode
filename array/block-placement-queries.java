@@ -35,6 +35,10 @@ class Solution {
                     else 
                     break;
                 }
+                if(row[1] - prev >= row[2])
+                {
+                    canPlace = true;
+                }
                 result.add(canPlace);  
             }
             
