@@ -1,6 +1,6 @@
 class Solution {
     TreeSet<Integer> obstacles= new TreeSet<>();
-    boolean[] result= new boolean();   
+    boolean[] result;   
     public List<Boolean> getResults(int[][] queries) {
         
         return check(queries);
