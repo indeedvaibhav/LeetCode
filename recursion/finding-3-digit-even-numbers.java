@@ -6,11 +6,11 @@ class Solution {
         boolean[] unused;
         for (int i = 0; i < digits.length; i++)
             unused[i] = false;
-        int[] result = solve(digits, s, unused);
+        int[] result = solve(digits, s, unused);    
         return result;
 
     }
-
+ 
     int[] solve(int[] digits, String current, int[] unused) {
         if(current.length()==3)
         {
@@ -30,15 +30,16 @@ class Solution {
             current=current+ digits[i];
             unused[i]= true;
 
-            solve(current, unused);
+            solve(digits, current, unused);
             unused[i]=false;
             current.substring(current.length-1-i);
         }
         int[] array = new int[set.size()];
-int index = 0;
-for (Integer num : set) {
-    array[index++] = num; // Auto-unboxing handles conversion
-}
-
+        int index = 0;
+        for (Integer num : set) 
+        {
+            array[index++] = num; // Auto-unboxing handles conversion
+        }
+        return array;
     }
 }
