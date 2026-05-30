@@ -32,7 +32,7 @@ class Solution {
 
             solve(current, unused);
             unused[i]=false;
-            current.substring(current.length-1-i;)
+            current.substring(current.length-1-i);
         }
         int[] array = new int[set.size()];
 int index = 0;
