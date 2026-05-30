@@ -1,21 +1,17 @@
 class Solution {
     HashSet<Integer> ans = new HashSet<>();
-    
 
-    public int[] findEvenNumbers(int[] digits) 
-    {
-        String s="";
+    public int[] findEvenNumbers(int[] digits) {
+        String s = "";
         boolean[] unused;
-        for(int i=0;i<digits.length;i++)
-        unused[i]=false;
-        Hashset<Integer> result= solve(digits,s,unused);
-        int[] array = set.stream().mapToInt(Integer::intValue).toArray();
-        return array;
+        for (int i = 0; i < digits.length; i++)
+            unused[i] = false;
+        int[] result = solve(digits, s, unused);
+        return result;
 
-       
     }
-    
-    Hashset<Integer> solve(int[] digits, String current, int[] unused) {
+
+    int[] solve(int[] digits, String current, int[] unused) {
         if(current.length()==3)
         {
             int number = Integer.parseInt(current); 
@@ -35,9 +31,14 @@ class Solution {
             unused[i]= true;
 
             solve(current, unused);
-            used[i]=false;
-            current.substring()
+            unused[i]=false;
+            current.substring(current.length-1-i;)
         }
+        int[] array = new int[set.size()];
+int index = 0;
+for (Integer num : set) {
+    array[index++] = num; // Auto-unboxing handles conversion
+}
 
     }
 }
