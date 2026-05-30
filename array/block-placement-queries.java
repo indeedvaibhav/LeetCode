@@ -1,13 +1,13 @@
 class Solution {
     TreeSet<Integer> obstacles= new TreeSet<>();
-    boolean[] result;   
+    List<Boolean> result=new List<>();   
     public List<Boolean> getResults(int[][] queries) {
         
         return check(queries);
 
         
     }
-    public boolean[] check(int[][] queries)
+    public List<Boolean> check(int[][] queries)
     {
         int prev=0;
         for(int[] row: queries)
