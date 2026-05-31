@@ -1,16 +1,20 @@
 class Solution {
     public boolean asteroidsDestroyed(int mass, int[] asteroids) {
-        int massgain=0;
-        boolean flag=false;
-        for(int i=0;i<asteroids.length;i++)
+        int massgain = 0;
+        boolean flag = false;
+        ArrayList<Integer> aster = Arrays.stream(asteroids)
+                .boxed()
+                .collect(Collectors.toCollection(ArrayList::new));
+
+        Arrays.sort(asteroids);
+
+        for (int i = 0; i < aster.size(); i++)
         {
-            if(mass>=asteroids[i])
-            {
-                massgain=asteroids[i];
-                mass+=massgain;
-            }
-            else
-            break;
+            if (mass >= aster[i]) {
+                massgain = aster[i];
+                mass += massgain;
+            } else
+                break;
         }
         return flag;
     }
