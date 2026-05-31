@@ -6,7 +6,7 @@ class Solution {
                 .boxed()
                 .collect(Collectors.toCollection(ArrayList::new));
 
-        Arrays.sort(asteroids);
+        Arrays.sort(aster);
 
         for (int i = 0; i < aster.size(); i++)
         {
