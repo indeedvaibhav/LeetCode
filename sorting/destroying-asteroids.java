@@ -4,7 +4,7 @@ class Solution {
         boolean flag=false;
         for(int i=0;i<asteroids.length;i++)
         {
-            if(mass>=asteroid[i])
+            if(mass>=asteroids[i])
             {
                 massgain=asteroids[i];
                 mass+=massgain;
