@@ -10,10 +10,11 @@ class Solution {
                 massgain = asteroids[i];
                 mass += massgain;
                 flag=true;
-            } else
-                break;
+            } 
+            else
+            {flag=false;
+            break;}
         }
-        flag=false;
         return flag;
     }
 }
