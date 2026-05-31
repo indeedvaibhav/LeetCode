@@ -1,7 +1,8 @@
 class Solution {
     public boolean asteroidsDestroyed(int mass, int[] asteroids) {
         int massgain = 0;
-        Long Mass=mass;
+        Long Mass=0;
+        Mass+=mass;
         boolean flag = false;
         Arrays.sort(asteroids);
 
