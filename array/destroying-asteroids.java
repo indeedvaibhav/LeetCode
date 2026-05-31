@@ -13,6 +13,7 @@ class Solution {
             if (mass >= aster.get(i)) {
                 massgain = aster.get(i);
                 mass += massgain;
+                flag=true;
             } else
                 break;
         }
