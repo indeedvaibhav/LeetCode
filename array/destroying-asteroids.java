@@ -10,8 +10,8 @@ class Solution {
 
         for (int i = 0; i < aster.size(); i++)
         {
-            if (mass >= aster[i]) {
-                massgain = aster[i];
+            if (mass >= aster.get(i)) {
+                massgain = aster.get(i);
                 mass += massgain;
             } else
                 break;
