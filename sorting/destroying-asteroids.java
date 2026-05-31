@@ -15,11 +15,9 @@ class Solution {
                 mass += massgain;
                 flag=true;
             } else
-                {
-                    flag=false;
-                    break;
-                }
+                break;
         }
+        flag=false;
         return flag;
     }
 }
