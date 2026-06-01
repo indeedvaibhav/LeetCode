@@ -3,7 +3,7 @@ class Solution {
         int total=0;
         int i=0;
         if(cost.length==1) return cost[0];
-        if(cost.length==2) total=cost[0]+cost[1];
+        if(cost.length==2) return (cost[0]+cost[1]);
         cost = Arrays.stream(cost)
                 .boxed()
                 .sorted(Collections.reverseOrder())
