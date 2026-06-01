@@ -22,7 +22,7 @@ class Solution {
         {
             String first=p.substring(0,i);
             String second=p.substring(i,p.length());
-            ans.addAll(permutationIndex(first+ch+second,up.substring(1),k));
+            ans.addAll(permutationIndex(first+ch+second,up.substring(1)));
         }
         return ans;
     }
