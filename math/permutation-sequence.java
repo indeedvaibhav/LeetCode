@@ -20,8 +20,8 @@ class Solution {
         ArrayList<String> ans= new ArrayList<>();
         for(int i=1;i<=p.length()+1;i++)
         {
-            String first=p.substring(0,i);
-            String second=p.substring(i,p.length());
+            String first=p.substring(1,i);
+            String second=p.substring(i,p.length()+1);
             ans.addAll(permutationIndex(first+ch+second,up.substring(1)));
         }
         return ans;
