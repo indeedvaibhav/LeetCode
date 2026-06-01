@@ -12,10 +12,8 @@ class Solution {
         while(i<cost.length && (i+1)<cost.length)
         {
             int sum= cost[i]+cost[i+1];
-            total=total+sum;
-
-            if((i+3)<=cost.length)
-                i+=3;
+            total=total+sum;    
+            i+=3;
         }
         while(i<cost.length) {
             total = total + cost[i];
