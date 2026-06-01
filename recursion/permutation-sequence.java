@@ -1,7 +1,7 @@
 class Solution {
     public String getPermutation(int n, int k) {
         String p="";String up="";
-        for(int i=0;i<n;i++)
+        for(int i=1;i<=n;i++)
         up=up+i;
         ArrayList<String>result= permutationIndex(p,up);
         return result.get(k);
@@ -18,11 +18,11 @@ class Solution {
         char ch=up.charAt(0);
         
         ArrayList<String> ans= new ArrayList<>();
-        for(int i=1;i<=p.length()+1;i++)
+        for(int i=0;i<=p.length();i++)
         {
-            String first=p.substring(1,i);
-            String second=p.substring(i,p.length()+1);
-            ans.addAll(permutationIndex(first+ch+second,up.substring(1)));
+            String first=p.substring(0,i);
+            String second=p.substring(i,p.length());
+            ans.addAll(permutationIndex(first+ch+second,up.substring(1),k));
         }
         return ans;
     }
