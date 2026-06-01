@@ -3,13 +3,17 @@ class Solution {
         String p="";String up="";
         for(int i=0;i<n;i++)
         up=up+i;
-        return permutationIndex(p,up,k);
-        
+        ArrayList<String>result= permutationIndex(p,up);
+        return result.get(k);
     }
-    static String permutationIndex(String p,String up,int k)
+    static ArrayList<String> permutationIndex(String p,String up)
     {
         if(up.isEmpty())
-        return p;
+        {
+            ArrayList<String> list= new ArrayList<>();
+            list.add(p);
+            return list;
+        }
 
         char ch=up.charAt(0);
         
@@ -20,7 +24,6 @@ class Solution {
             String second=p.substring(i,p.length());
             ans.addAll(permutationIndex(first+ch+second,up.substring(1),k));
         }
-        String result=ans.get(k);
-        return result;
+        return ans;
     }
 }
