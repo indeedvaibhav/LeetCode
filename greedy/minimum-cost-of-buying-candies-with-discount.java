@@ -2,18 +2,18 @@ class Solution {
     public int minimumCost(int[] cost) {
         int total=0;
         int i=0;
-        if(arr.length==1) return arr[0];
-        if(arr.length==2) total=arr[0]+arr[1];
-        arr = Arrays.stream(arr)
+        if(cost.length==1) return cost[0];
+        if(cost.length==2) total=cost[0]+cost[1];
+        cost = Arrays.stream(cost)
                 .boxed()
                 .sorted(Collections.reverseOrder())
                 .mapToInt(Integer::intValue)
-                .toArray();        while(i<arr.length && (i+1)<=arr.length)
+                .toArray();        while(i<cost.length && (i+1)<=cost.length)
         {
-            int sum= arr[i]+arr[i+1];
+            int sum= cost[i]+cost[i+1];
             total=total+sum;
 
-            if((i+3)<=arr.length)
+            if((i+3)<=cost.length)
                 i+=3;
         }
         return total;
