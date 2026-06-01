@@ -5,7 +5,7 @@ class Solution {
         if (cost.length == 1)
             return cost[0];
         if (cost.length == 2)
-            total = cost[0] + cost[1];
+            return total = cost[0] + cost[1];
         cost = Arrays.stream(cost)
                 .boxed()
                 .sorted(Collections.reverseOrder())
