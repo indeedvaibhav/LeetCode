@@ -14,7 +14,7 @@ class Solution {
         char ch=up.charAt(0);
         
         ArrayList<String> ans= new ArrayList<>();
-        for(int i=0;i<=p.length;i++)
+        for(int i=0;i<=p.length();i++)
         {
             String first=p.substring(0,i);
             String second=p.substring(i,p.length());
