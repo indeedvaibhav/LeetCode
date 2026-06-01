@@ -4,7 +4,7 @@ class Solution {
         for(int i=1;i<=n;i++)
         up=up+i;
         ArrayList<String>result= permutationIndex(p,up);
-        return result.get(k);
+        return result.get(k-1);
     }
     static ArrayList<String> permutationIndex(String p,String up)
     {
