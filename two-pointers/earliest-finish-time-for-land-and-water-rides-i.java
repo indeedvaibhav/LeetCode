@@ -21,7 +21,7 @@ class Solution {
                     earliest2 = endtime;
                 endtime -= landDuration[i];
             }
-            if (earlist1 < earliest2)
+            if (earliest1 < earliest2)
                 return earliest1;
 
             return earliest2;
