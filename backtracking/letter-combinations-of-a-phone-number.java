@@ -14,7 +14,7 @@ class Solution {
         }
         ArrayList<String> ans=new ArrayList<>();
         int digit= up.charAt(0)-'1';
-        for(int i=(digit-1)*3;i<=digit*3;i++)
+        for(int i=(digit-1)*3;i<digit*3;i++)
         {
             char ch=(char)('a'+i);
             ans.addAll(combinations(p+ch,up.substring(1)));
