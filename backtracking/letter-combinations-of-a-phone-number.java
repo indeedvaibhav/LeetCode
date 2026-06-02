@@ -1,10 +1,10 @@
 class Solution {
     public List<String> letterCombinations(String digits) {
         String p="";
-        return combinations(p,s);
+        return combinations(p,digits);
         
     }
-    static ArrayList<String> combinations(String p, Strinp up)
+    static ArrayList<String> combinations(String p, String up)
     {
         if(up.isEmpty())
         {
