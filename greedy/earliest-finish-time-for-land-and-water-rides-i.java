@@ -7,7 +7,7 @@ class Solution {
             for (int j = 0; j < waterStartTime.length; j++) {
                 endtime += waterDuration[j];
             }
-            if (endtime < earliest)
+            if (endtime < earliest1)
                 earliest1 = endtime;
             endtime = 0;
         }
@@ -17,7 +17,7 @@ class Solution {
             int endtime = waterStartTime[i] + waterDuration[i];
             for (int j = 0; j < landStartTime.length; j++) {
                 endtime += landDuration[i];
-                if (endtime < earliest)
+                if (endtime < earliest2)
                     earliest2 = endtime;
                 endtime -= landDuration[i];
             }
