@@ -9,8 +9,8 @@ class Solution {
         return ans;
     }
 
-    static int backtracking(int[] digits, boolean[] used, String current, HashSet<Integer> set) {
-        if (current.length == 3) {
+    static void backtracking(int[] digits, boolean[] used, String current, HashSet<Integer> set) {
+        if (current.length() == 3) {
             int num = Integer.parseInt(current);
             if (current.charAt(0) == '0' && num % 2 == 0) {
                 set.add(num);
