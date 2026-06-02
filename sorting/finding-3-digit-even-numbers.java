@@ -10,20 +10,22 @@ class Solution {
     }
 
     static void backtracking(int[] digits, boolean[] used, String current, HashSet<Integer> set) {
-        if (current.length() == 3) {
-            int num = Integer.parseInt(current);
-            if (current.charAt(0) == '0' && num % 2 == 0) {
-                set.add(num);
+       if(current.length()==3)
+        {
+            int number=Integer.parseInt(current);
+            if(current.charAt(0)!='0' && number%2==0) {
+                set.add(number);
             }
             return;
         }
-        for (int i = 0; i < digits.length; i++) {
-            if (used[i])
-                continue;
+        for(int i=0;i<digits.length;i++)
+        {
+            if(used[i]) continue;
 
-            used[i] = true;
-            backtracking(digits, used, current + digits[i], set);
-            used[i] = false;
+            used[i]=true;
+
+            backtracking(digits,used,current+digits[i],set);
+            used[i]=false;
         }
 
     }
