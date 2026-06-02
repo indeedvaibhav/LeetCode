@@ -16,10 +16,10 @@ class Solution {
         for (int i = 0; i < waterStartTime.length; i++) {
             int endtime = waterStartTime[i] + waterDuration[i];
             for (int j = 0; j < landStartTime.length; j++) {
-                endtime += landDuration[i];
+                endtime += landDuration[j];
                 if (endtime < earliest2)
                     earliest2 = endtime;
-                endtime -= landDuration[i];
+                endtime -= landDuration[j];
             }
         }
         if (earliest1 < earliest2)
