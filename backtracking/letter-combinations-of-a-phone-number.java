@@ -9,7 +9,12 @@ class Solution {
     }
 
     static ArrayList<String> combinations(String p, String up) {
-        
+        if (up.isEmpty()) {
+            ArrayList<String> list = new ArrayList<>();
+            list.add(p);
+            return list;
+
+        }
         String[] map = {
                 "", "",
                 "abc", "def", "ghi",
