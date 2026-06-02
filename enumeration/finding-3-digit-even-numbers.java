@@ -1,6 +1,6 @@
 class Solution {
     public int[] findEvenNumbers(int[] digits) {
-        HashSet<Integer> Set = new HashSet<>();
+        HashSet<Integer> set = new HashSet<>();
         boolean[] used = new boolean[digits.length];
 
         backtracking(digits, used, "", set);
