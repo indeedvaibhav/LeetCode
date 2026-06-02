@@ -1,30 +1,46 @@
 class Solution {
-    public int earliestFinishTime(int[] landStartTime, int[] landDuration, int[] waterStartTime, int[] waterDuration) {
-        int earliest1 = Integer.MAX_VALUE;
-        int count = 0;
-        for (int i = 0; i < landStartTime.length; i++) {
-            int endtime = landStartTime[i] + landDuration[i];
-            for (int j = 0; j < waterStartTime.length; j++) {
-                endtime += waterDuration[j];
-            }
-            if (endtime < earliest1)
-                earliest1 = endtime;
-            endtime = 0;
-        }
-        int earliest2 = Integer.MAX_VALUE;
+    public int earliestFinishTime(int[] landStartTime, int[] landDuration,
+                                  int[] waterStartTime, int[] waterDuration) {
 
-        for (int i = 0; i < waterStartTime.length; i++) {
-            int endtime = waterStartTime[i] + waterDuration[i];
-            for (int j = 0; j < landStartTime.length; j++) {
-                endtime += landDuration[j];
-                if (endtime < earliest2)
-                    earliest2 = endtime;
-                endtime -= landDuration[j];
-            }
-        }
-        if (earliest1 < earliest2)
-                return earliest1;
+        int landFirst = calculate(
+                landStartTime, landDuration,
+                waterStartTime, waterDuration
+        );
 
-            return earliest2;
+        int waterFirst = calculate(
+                waterStartTime, waterDuration,
+                landStartTime, landDuration
+        );
+
+        return Math.min(landFirst, waterFirst);
+    }
+
+    private int calculate(int[] firstStart, int[] firstDuration,
+                          int[] secondStart, int[] secondDuration) {
+
+        int earliestFirstFinish = Integer.MAX_VALUE;
+
+        for (int i = 0; i < firstStart.length; i++) {
+            earliestFirstFinish = Math.min(
+                    earliestFirstFinish,
+                    firstStart[i] + firstDuration[i]
+            );
+        }
+
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i < secondStart.length; i++) {
+            int startSecond = Math.max(
+                    earliestFirstFinish,
+                    secondStart[i]
+            );
+
+            result = Math.min(
+                    result,
+                    startSecond + secondDuration[i]
+            );
+        }
+
+        return result;
     }
 }
