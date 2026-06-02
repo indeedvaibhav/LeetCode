@@ -9,7 +9,7 @@ class Solution {
         if(up.isEmpty()) {
             ArrayList<String> list=new ArrayList<>();
             list.add(p);
-            return p;
+            return list;
            
         }
         ArrayList<String> ans=new ArrayList<>();
