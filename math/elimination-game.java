@@ -1,36 +1,25 @@
 class Solution {
     public int lastRemaining(int n) {
-        ArrayList<Integer> list = new ArrayList<>();
-
-        for (int i = 1; i <= n; i++) {
-            list.add(i);
-        }
-
-        return solve(list, true);
+        return solve(1, 1, n, true);
     }
 
-    static int solve(ArrayList<Integer> list, boolean leftRight) {
-        if (list.size() == 1) {
-            return list.get(0);
+    private int solve(int head, int step,
+                      int remaining,
+                      boolean left) {
+
+        if (remaining == 1) {
+            return head;
         }
 
-        ArrayList<Integer> ans = new ArrayList<>();
-
-        if (leftRight) {
-
-            for (int i = 1; i < list.size(); i += 2) {
-                ans.add(list.get(i));
-            }
-
-        } else {
-
-            for (int i = list.size() - 2; i >= 0; i -= 2) {
-                ans.add(list.get(i));
-            }
-
-            Collections.reverse(ans);
+        if (left || remaining % 2 == 1) {
+            head += step;
         }
 
-        return solve(ans, !leftRight);
+        return solve(
+            head,
+            step * 2,
+            remaining / 2,
+            !left
+        );
     }
 }
