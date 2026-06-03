@@ -12,7 +12,7 @@ class Solution {
 
         return Math.min(landFirst, waterFirst);
     }
-    public int earliest(int[] firstStartTime, int[] firstDuration, int[]secondStartTime,int[] secondduration)
+    public int calculate(int[] firstStartTime, int[] firstDuration, int[]secondStartTime,int[] secondduration)
     {
         int earliestFirstFinish = Integer.MAX_VALUE;
 
