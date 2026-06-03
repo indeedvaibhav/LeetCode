@@ -24,10 +24,10 @@ class Solution {
         }
         int result = Integer.MAX_VALUE;
 
-        for (int i = 0; i < secondStart.length; i++) {
+        for (int i = 0; i < secondStartTime.length; i++) {
             int startSecond = Math.max(
                     earliestFirstFinish,
-                    secondStart[i]
+                    secondStartTime[i]
             );
 
             result = Math.min(
