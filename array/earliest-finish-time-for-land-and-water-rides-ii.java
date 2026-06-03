@@ -32,7 +32,7 @@ class Solution {
 
             result = Math.min(
                     result,
-                    startSecond + secondDuration[i]
+                    startSecond + secondduration[i]
             );
         }
 
