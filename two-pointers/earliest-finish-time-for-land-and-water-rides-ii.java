@@ -16,22 +16,26 @@ class Solution {
     {
         int earliestFirstFinish = Integer.MAX_VALUE;
 
-        for (int i = 0; i < firstStart.length; i++) {
+        for (int i = 0; i < firstStartTime.length; i++) {
             earliestFirstFinish = Math.min(
                     earliestFirstFinish,
-                    firstStart[i] + firstDuration[i]
+                    firstStartTime[i] + firstDuration[i]
             );
         }
-        int result=Integer.MAX_VALUE;
-        for(int i=0;i<secondStartTime;i++)
-        {
-            int secondstart=Math.max(secondStartTime[i],earliesttime);
+        int result = Integer.MAX_VALUE;
+
+        for (int i = 0; i < secondStart.length; i++) {
+            int startSecond = Math.max(
+                    earliestFirstFinish,
+                    secondStart[i]
+            );
 
             result = Math.min(
                     result,
                     startSecond + secondDuration[i]
             );
         }
+
         return result;
     }
 } 
