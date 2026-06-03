@@ -17,7 +17,7 @@ class Solution {
         int earliesttime=Integer.MAX_VALUE;
         for(int i=0;i<firstStartTime;i++)
         {
-            earliesttime=Math.min(earliesttime,firstStart[i]+firstDuration[]);
+            earliesttime=Math.min(earliesttime,firstStartTime[i]+firstDuration[]);
         }
         int result=Integer.MAX_VALUE;
         for(int i=0;i<secondStartTime;i++)
