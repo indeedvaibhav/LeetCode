@@ -1,12 +1,16 @@
-class Solution {
-    public int lastRemaining(int n) {
-        ArrayList<Integer> list=new ArrayList<>();
-        for(int i=1;i<=n;i++)
-        list.add(i);
+import java.util.ArrayList;
+import java.util.Collections;
 
-        return solve(list,false);
-        
+public class elimination {
+    public static void main(String[] args) {
+        int n=9;
+        ArrayList<Integer> numbers=new ArrayList<>();
+        for(int i=1;i<=n;i++)
+            numbers.add(i);
+        System.out.println(solve(numbers,true));
+
     }
+
     static int solve(ArrayList<Integer> list,boolean leftRight)
     {
         if(list.size()==1)
@@ -14,7 +18,7 @@ class Solution {
         ArrayList<Integer> ans=new ArrayList<>();
 
         if(leftRight){
-            for(int i=1;i<list.size()-1;i+=2)
+            for(int i=1;i<list.size();i+=2)
             {
                 ans.add(list.get(i));
             }
@@ -25,6 +29,7 @@ class Solution {
             {
                 ans.add(list.get(i));
             }
+            Collections.reverse(ans);
         }
         return solve(ans,!leftRight);
     }
