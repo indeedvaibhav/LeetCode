@@ -14,10 +14,13 @@ class Solution {
     }
     public int earliest(int[] firstStartTime, int[] firstDuration, int[]secondStartTime,int[] secondduration)
     {
-        int earliesttime=Integer.MAX_VALUE;
-        for(int i=0;i<firstStartTime;i++)
-        {
-            earliesttime=Math.min(earliesttime,firstStartTime[i]+firstDuration[]);
+        int earliestFirstFinish = Integer.MAX_VALUE;
+
+        for (int i = 0; i < firstStart.length; i++) {
+            earliestFirstFinish = Math.min(
+                    earliestFirstFinish,
+                    firstStart[i] + firstDuration[i]
+            );
         }
         int result=Integer.MAX_VALUE;
         for(int i=0;i<secondStartTime;i++)
