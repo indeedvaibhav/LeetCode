@@ -1,8 +1,7 @@
-
 class Solution {
     public long maxTotalValue(int[] nums, int k) {
         int n = nums.length;
-        List<Long> values = new ArrayList<>();
+        PriorityQueue<Long> pq = new PriorityQueue<>();
 
         for (int l = 0; l < n; l++) {
             int mn = nums[l];
@@ -12,15 +11,20 @@ class Solution {
                 mn = Math.min(mn, nums[r]);
                 mx = Math.max(mx, nums[r]);
 
-                values.add((long) (mx - mn));
+                long val = (long) mx - mn;
+
+                if (pq.size() < k) {
+                    pq.offer(val);
+                } else if (val > pq.peek()) {
+                    pq.poll();
+                    pq.offer(val);
+                }
             }
         }
 
-        values.sort(Collections.reverseOrder());
-
         long ans = 0;
-        for (int i = 0; i < k; i++) {
-            ans += values.get(i);
+        while (!pq.isEmpty()) {
+            ans += pq.poll();
         }
 
         return ans;
