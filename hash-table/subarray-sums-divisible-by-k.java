@@ -1,23 +1,24 @@
 class Solution {
-    public int subarraysDivByK(int[] nums, int k) {
-        int[] copy = nums.clone();
-        int count = 0;
+    public int subarraySumHash(int[] nums, int k) {
+    HashMap<Integer, Integer> map = new HashMap<>();
 
-        for (int i = 0; i < nums.length; i++) {
+    map.put(0, 1);
 
-            if (copy[i] % k == 0)
-                count++;
+    int prefixSum = 0;
+    int count = 0;
 
-            for (int j = i + 1; j < nums.length; j++) {
-                copy[j] += copy[j - 1];
+    for (int num : nums) {
+        prefixSum += num;
 
-                if (copy[j] % k == 0)
-                    count++;
-            }
+        int rem = ((prefixSum % k) + k) % k;
 
-            copy = nums.clone();
+        if (map.containsKey(rem)) {
+            count += map.get(rem);
         }
 
-        return count;
+        map.put(rem, map.getOrDefault(rem, 0) + 1);
     }
+
+    return count;
+}
 }
