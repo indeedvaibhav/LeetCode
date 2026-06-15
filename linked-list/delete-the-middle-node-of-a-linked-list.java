@@ -14,26 +14,17 @@ class Solution {
             return null;
         }
 
-        int length = findLength(head);
+        ListNode slow = head;
+        ListNode fast = head.next.next;
 
-        int mid = length / 2;
-        ListNode temp = head;
-        for (int i = 0; i < mid - 1; i++) {
-            temp = temp.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        temp.next = temp.next.next;
+        slow.next = slow.next.next;
 
         return head;
-    }
-
-    private int findLength(ListNode head) {
-        int count= 0;
-        ListNode temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.next;
-        }
-        return count;
+        
     }
 }
