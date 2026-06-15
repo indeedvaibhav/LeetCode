@@ -8,13 +8,14 @@ class Solution {
                 if(grid[i][j]==1)
                     peri+=4;
 
-                if(i>0 && j>0)
-                {
-                    if(grid[i-1][j] ==1 && grid[i][j-1]==1)
-                        peri-=4;
-                }
+                if (i > 0 && grid[i - 1][j] == 1)
+                    peri -= 2;
+
+                if (j > 0 && grid[i][j - 1] == 1)
+                    peri -= 2;
             }
         }
         return peri;
+
     }
 }
