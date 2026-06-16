@@ -9,12 +9,16 @@ class Solution {
             result[0]="Gold Medal";
             return result;
         }
-        if(score.length==2)
-        {
-            result[0]="Gold Medal";
-            result[1]="Silver Medal";
-            return result;
-        }
+        if (score.length == 2) {
+    if (score[0] > score[1]) {
+        result[0] = "Gold Medal";
+        result[1] = "Silver Medal";
+    } else {
+        result[0] = "Silver Medal";
+        result[1] = "Gold Medal";
+    }
+    return result;
+}
         map.put(sorted[len],"Gold Medal");
         map.put(sorted[len-1],"Silver Medal");
         map.put(sorted[len-2],"Bronze Medal");
