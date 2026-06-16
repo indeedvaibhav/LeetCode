@@ -1,29 +1,36 @@
 class Solution {
     public String[] findRelativeRanks(int[] score) {
-        int[] sorted = score.clone();
+        HashMap<Integer , String> map=new HashMap<>();
+        int[] sorted= score.clone();
         Arrays.sort(sorted);
-
-        HashMap<Integer, String> map = new HashMap<>();
-        int n = score.length;
-
-        for (int i = 0; i < n; i++) {
-            int rank = n - i;
-
-            if (rank == 1)
-                map.put(sorted[i], "Gold Medal");
-            else if (rank == 2)
-                map.put(sorted[i], "Silver Medal");
-            else if (rank == 3)
-                map.put(sorted[i], "Bronze Medal");
-            else
-                map.put(sorted[i], String.valueOf(rank));
+        String[] result= new String[sorted.length]; int len=sorted.length-1;
+        if(score.length==1)
+        {
+            result[0]="Gold Medal";
+            return result;
         }
+        if (score.length == 2) {
+    if (score[0] > score[1]) {
+        result[0] = "Gold Medal";
+        result[1] = "Silver Medal";
+    } else {
+        result[0] = "Silver Medal";
+        result[1] = "Gold Medal";
+    }
+    return result;
+}
+        map.put(sorted[len],"Gold Medal");
+        map.put(sorted[len-1],"Silver Medal");
+        map.put(sorted[len-2],"Bronze Medal");
+        for(int i=3;i<sorted.length;i++)
+            map.put(sorted[len-i],(i+1)+"");
 
-        String[] result = new String[n];
-        for (int i = 0; i < n; i++) {
-            result[i] = map.get(score[i]);
+
+        for(int i=0;i<=score.length-1;i++)
+        {
+            result[i]=map.get(score[i]);
+
         }
-
         return result;
     }
 }
