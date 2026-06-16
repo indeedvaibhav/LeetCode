@@ -4,6 +4,17 @@ class Solution {
         int[] sorted= score.clone();
         Arrays.sort(sorted);
         String[] result= new String[sorted.length]; int len=sorted.length-1;
+        if(score.length==1)
+        {
+            result[0]="Gold Medal";
+            return result;
+        }
+        if(score.length==2)
+        {
+            result[0]="Gold Medal";
+            result[1]="Silver Medal";
+            return result;
+        }
         map.put(sorted[len],"Gold Medal");
         map.put(sorted[len-1],"Silver Medal");
         map.put(sorted[len-2],"Bronze Medal");
