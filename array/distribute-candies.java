@@ -7,9 +7,9 @@ class Solution {
 
             if(set.size() == 1)
                 return 1;
-            else if (set.size() == n)
+            else if (set.size() <= n)
                 return set.size();
-
+            
             return n;
     }
 }
