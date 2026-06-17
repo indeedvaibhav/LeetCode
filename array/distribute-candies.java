@@ -8,8 +8,8 @@ class Solution {
             if(set.size() == 1)
                 return 1;
             else if (set.size() == n)
-                return n;
+                return set.size();
 
-            return set.size();
+            return n;
     }
 }
