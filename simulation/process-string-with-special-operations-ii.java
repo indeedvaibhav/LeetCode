@@ -15,9 +15,10 @@ class Solution {
             else if(ch=='%')
                 result.reverse();
         }
-        if(k>result.length())
+        if(k>result.length()-1)
             return '.';
         else
             return result.charAt((int) k);
+
     }
 }
