@@ -18,6 +18,10 @@ class Solution {
                     ans.add(word);
                     minSum=sum;
                 }
+                else if(sum == minSum)
+                {
+                    ans.add(word);
+                }
             }
             index++;
         }
