@@ -5,7 +5,7 @@ class Solution {
         if(costs[0]>coins) return 0;
         while(max!=coins && i<costs.length)
         {
-            max+=costs[i];
+            max++;
             i++;
         }
         return max;
