@@ -3,6 +3,8 @@ class Solution {
         boolean ans=false;
         int i=1;
         int sum=0;int count=0;
+        if(n==0)
+        return false;
         while(i<flowerbed.length-1)
         {
             sum=flowerbed[i-1]+flowerbed[i+1];
