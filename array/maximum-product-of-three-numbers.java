@@ -1,12 +1,16 @@
 class Solution {
     public int maximumProduct(int[] nums) {
-        int maxProd=1;
+        if(nums.length<3) return -1;
 
-        if(nums.length==3)
-        return nums[0]*nums[1]*nums[2];
         Arrays.sort(nums);
+        int max=nums[nums.length-1];
+        int secondMax=nums[nums.length-2];
+        int thirdMax=nums[nums.length-3];
+        int min=nums[0];
+        int secondMin=nums[1];
 
-        int len=nums.length-1;
-        return nums[len]*nums[len-1]*nums[len-2];
+        return Math.max(max*secondMax*thirdMax,min*secondMin*max);
+        
+
     }
 }
