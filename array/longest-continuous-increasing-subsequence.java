@@ -4,6 +4,7 @@ class Solution {
         int maxCount=Integer.MIN_VALUE,count=0;
         for(int i=0;i<nums.length;i++)
         {
+            if(nums.length==1) return 0;
             if(nums[left]<nums[right])
             {
                 count+=1;
