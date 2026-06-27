@@ -1,17 +1,21 @@
 class Solution {
     public int mySqrt(int x) {
-        if (x < 0) {
-            return Double.NaN; 
-        }
-        if (x == 0 || x == 1) {
-            return x;
-        }
+        if (x < 0) return -1; 
+        if (x == 0 || x == 1) return x;
 
-        double guess = x / 2.0;
-        double precision = 0.000001; 
-        while (Math.abs(guess * guess - x) > precision) {
-            guess = (guess + (x / guess)) / 2.0;
+        int start = 1, end = x, ans = 0;
+
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
+
+            
+            if (mid <= x / mid) { 
+                ans = mid;   
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
         }
-        return guess;
+        return ans;
     }
     }
