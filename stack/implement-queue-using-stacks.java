@@ -16,7 +16,7 @@ class MyQueue {
     }
     
     public int pop() {
-        while(!first.isempty())
+        while(!first.isEmpty())
         {
             second.push(first.pop());
         }
@@ -31,7 +31,7 @@ class MyQueue {
     }
     
     public int peek() {
-        while(!first.isempty())
+        while(!first.isEmpty())
         {
             second.push(first.pop());
         }
