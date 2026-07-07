@@ -14,6 +14,8 @@ class Solution {
                 ans.append(ch);
             }
         }
+        if(sum==0) return 0;
+        else 
         return (long) sum *Integer.parseInt(String.valueOf(ans));
     }
 }
