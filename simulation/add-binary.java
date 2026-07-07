@@ -1,5 +1,5 @@
 class Solution {
-    publilong a1=0,a2=0;
+    public String addBinary(String a, String b) {
         int i= a.length()-1;
         int j= b.length()-1;
         StringBuilder ans= new StringBuilder();
