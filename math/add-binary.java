@@ -10,7 +10,7 @@ class Solution {
         StringBuilder sb=new StringBuilder();
         while(a1!=0)
         {
-            int temp=a1%2;
+            long temp=a1%2;
             sb.append(temp);
             a1=a1/2;
         }
