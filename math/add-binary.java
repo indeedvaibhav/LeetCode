@@ -1,19 +1,19 @@
 class Solution {
-    public String addBinary(String a, String b) {
-        long a1=0,a2=0;
-        for(int i=0;i<a.length();i++)
-            a1 += (int) (Math.pow(2, i) * (int) (a.charAt(a.length()-1-i) - '0'));
-        for(int i=0;i<b.length();i++)
-            a2 += (int) (Math.pow(2, i) * (int) (b.charAt(b.length()-1-i) - '0'));
-        a1+=a2;
-        if(a1==0) return "0";
-        StringBuilder sb=new StringBuilder();
-        while(a1!=0)
+    publilong a1=0,a2=0;
+        int i= a.length()-1;
+        int j= b.length()-1;
+        StringBuilder ans= new StringBuilder();
+        int carry=0;
+        while(i>=0 || j>=0 || carry==1)
         {
-            long temp=a1%2;
-            sb.append(temp);
-            a1=a1/2;
+            int sum=carry;
+            if(i>=0)
+                sum+=a.charAt(i--)-'0';
+            if(j>=0)
+                sum+=b.charAt(j--)-'0';
+            ans.append(sum%2);
+            carry=sum/2;
         }
-        return String.valueOf(sb.reverse());
+        return String.valueOf(ans.reverse());
     }
 }
