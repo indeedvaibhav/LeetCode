@@ -1,6 +1,6 @@
 class Solution {
     public String addBinary(String a, String b) {
-        int a1=0,a2=0;
+        long a1=0,a2=0;
         for(int i=0;i<a.length();i++)
             a1 += (int) (Math.pow(2, i) * (int) (a.charAt(a.length()-1-i) - '0'));
         for(int i=0;i<b.length();i++)
