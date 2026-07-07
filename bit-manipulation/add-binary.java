@@ -6,6 +6,7 @@ class Solution {
         for(int i=0;i<b.length();i++)
             a2 += (int) (Math.pow(2, i) * (int) (b.charAt(b.length()-1-i) - '0'));
         a1+=a2;
+        if(a1==0) return "0";
         StringBuilder sb=new StringBuilder();
         while(a1!=0)
         {
