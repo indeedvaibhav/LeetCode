@@ -1,47 +1,28 @@
 class Solution {
     public boolean[] pathExistenceQueries(int n, int[] nums, int maxDiff, int[][] queries) {
-        ArrayList<Integer>[] graph = new ArrayList[n];
 
-        for(int i = 0; i < n; i++)
-            graph[i] = new ArrayList<>();
+        // component[i] = connected component number of node i
+        int[] component = new int[n];
 
-        for(int i = 0; i < n; i++) {
-            for(int j = i + 1; j < n; j++) {
-                if(Math.abs(nums[i] - nums[j]) <= maxDiff) {
-                    graph[i].add(j);
-                    graph[j].add(i);
-                }
+        int id = 0;
+        component[0] = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (nums[i] - nums[i - 1] > maxDiff) {
+                id++;
             }
+            component[i] = id;
         }
 
         boolean[] ans = new boolean[queries.length];
 
-        for(int i = 0; i < queries.length; i++) {
-            int src = queries[i][0];
-            int dest = queries[i][1];
+        for (int i = 0; i < queries.length; i++) {
+            int u = queries[i][0];
+            int v = queries[i][1];
 
-            boolean[] visited = new boolean[n];
-            ans[i] = dfs(src, dest, graph, visited);
+            ans[i] = component[u] == component[v];
         }
 
         return ans;
     }
-
-    static boolean dfs(int curr, int dest, ArrayList<Integer>[] graph, boolean[] visited) {
-
-        if(curr == dest)
-            return true;
-
-        visited[curr] = true;
-
-        for(int next : graph[curr]) {
-            if(!visited[next]) {
-                if(dfs(next, dest, graph, visited))
-                    return true;
-            }
-        }
-
-        return false;
-    }
-        
-    }
+}
