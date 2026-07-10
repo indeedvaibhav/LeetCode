@@ -1,40 +1,37 @@
 class Solution {
-    PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-
-    PriorityQueue<Integer> minHeap = new PriorityQueue<>();
-
     public int[] nextGreaterElements(int[] nums) {
-        for (int x : arr) {
-            rm.addNumber(x);
-            System.out.println(rm.getMedian());
-        }
-    }
+       HashMap<Integer,Integer> map= new HashMap<>();
+        Stack<Integer> stack=new Stack<>();
 
-    public void addNumber(int num) {
-
-        if (maxHeap.isEmpty() || num <= maxHeap.peek()) {
-            maxHeap.offer(num);
-        } else {
-            minHeap.offer(num);
-        }
-
-        // Balance heaps
-        if (maxHeap.size() > minHeap.size() + 1) {
-            minHeap.offer(maxHeap.poll());
-        } else if (minHeap.size() > maxHeap.size() + 1) {
-            maxHeap.offer(minHeap.poll());
-        }
-    }
-
-    public double getMedian() {
-
-        if (maxHeap.size() == minHeap.size()) {
-            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+        for(int i=0;i<nums2.length;i++)
+        {
+            if(i!=nums2.length-1) {
+                while (!stack.isEmpty() && nums2[i] > stack.peek()) {
+                    map.put(stack.pop(), nums2[i]);
+                }
+                stack.push(nums2[i]);
+            }
+            else
+            {
+                int x=i%nums2.length;
+                while(x<nums2.length-1)
+                {
+                    if(nums2[i]>stack.peek())
+                        map.put(stack.pop(), nums2[i]);
+                }
+            }
         }
 
-        if (maxHeap.size() > minHeap.size())
-            return maxHeap.peek();
+        while(!stack.isEmpty())
+        {
+            map.put(stack.pop(),-1);
+        }
 
-        return minHeap.peek();
+        int[] ans= new int[nums2.length];
+        for(int i=0;i< nums2.length;i++)
+        {
+            ans[i]=map.get(nums2[i]);
+        }
+        return ans;
     }
 }
