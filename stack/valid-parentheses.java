@@ -13,14 +13,16 @@ class Solution {
             if (map.containsKey(ch))
             { stack.push(ch);
             }
-            if (!stack.isEmpty() && (map.get(stack.peek()))==ch)
-            {
-                stack.pop();
+            else 
+            { 
+                if (stack.isEmpty() || map.get(stack.peek()) != ch) 
+                { 
+                    return false; 
+                } 
+            stack.pop(); 
             }
 
         }
-        if(stack.isEmpty())
-            return true;
-        return false;
+        return stack.isEmpty();
     }
 }
