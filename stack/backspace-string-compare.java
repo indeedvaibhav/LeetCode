@@ -20,6 +20,7 @@ class Solution {
             char ch= t.charAt(i);
             if(ch=='#')
             {
+                if(!stack2.isEmpty())
                 stack2.pop();
             }
             else
