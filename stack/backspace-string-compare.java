@@ -6,6 +6,7 @@ class Solution {
             char ch= s.charAt(i);
             if(ch=='#')
             {
+                if(!stack.isEmpty())
                 stack.pop();
             }
             else
