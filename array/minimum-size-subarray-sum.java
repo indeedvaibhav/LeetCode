@@ -9,7 +9,7 @@ class Solution {
 
         int first = 0, last = nums.length - 1;
         for (int i = 0; i < nums.length; i++) {
-            if ((nums[last] - nums[first]) == target) {
+            if ((nums[last] - nums[first]) >= target) {
                 int ans = last - first;
                 min = Math.min(min, ans);
             } else if (nums[first] < target)
