@@ -1,6 +1,6 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-         HashMap<Integer,Character> map= new HashMap<>();
+        HashMap<Integer,Character> map= new HashMap<>();
         char ans = 0;
         if(s.length()<t.length())
         {
@@ -13,8 +13,8 @@ class Solution {
                 if(!map.containsValue(t.charAt(i)))
                 {
                     ans=t.charAt(i);
-                    break;
                 }
+                else ans=t.charAt(0);
             }
         }
         else {
@@ -26,8 +26,10 @@ class Solution {
                 if(!map.containsValue(s.charAt(i)))
                 {
                     ans=s.charAt(i);
-                    break;
+
                 }
+                else ans=t.charAt(0);
+
             }
         }
         return ans;
