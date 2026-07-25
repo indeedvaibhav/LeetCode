@@ -23,7 +23,7 @@ class Solution {
             }
             for(int i=0;i<s.length();i++)
             {
-                if(!map.containsValue(s.charAt(i)));
+                if(!map.containsValue(s.charAt(i)))
                 {
                     ans=s.charAt(i);
                     break;
