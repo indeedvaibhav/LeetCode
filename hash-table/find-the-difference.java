@@ -1,37 +1,28 @@
+import java.util.HashMap;
+
 class Solution {
     public char findTheDifference(String s, String t) {
-        HashMap<Integer,Character> map= new HashMap<>();
-        char ans = 0;
-        if(s.length()<t.length())
-        {
-            for(int i=0;i<s.length();i++)
-            {
-                map.put(i,s.charAt(i));
-            }
-            for(int i=0;i<t.length();i++)
-            {
-                if(!map.containsValue(t.charAt(i)))
-                {
-                    ans=t.charAt(i);
-                }
-                else ans=t.charAt(0);
+       
+        HashMap<Character, Integer> mapS = buildFrequencyMap(s);
+        HashMap<Character, Integer> mapT = buildFrequencyMap(t);
+
+        for (int i = 0; i < t.length(); i++) {
+            char ch = t.charAt(i);
+            
+            if (!mapS.containsKey(ch) || mapT.get(ch) > mapS.get(ch)) {
+                return ch;
             }
         }
-        else {
-            for (int i = 0; i < t.length(); i++) {
-                map.put(i, t.charAt(i));
-            }
-            for(int i=0;i<s.length();i++)
-            {
-                if(!map.containsValue(s.charAt(i)))
-                {
-                    ans=s.charAt(i);
+        
+        return ' ';
+    }
 
-                }
-                else ans=s.charAt(0);
-
-            }
+    private HashMap<Character, Integer> buildFrequencyMap(String str) {
+        HashMap<Character, Integer> map = new HashMap<>();
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
-        return ans;
+        return map;
     }
 }
