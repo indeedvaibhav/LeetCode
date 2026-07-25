@@ -28,7 +28,7 @@ class Solution {
                     ans=s.charAt(i);
 
                 }
-                else ans=t.charAt(0);
+                else ans=s.charAt(0);
 
             }
         }
