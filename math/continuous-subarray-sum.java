@@ -1,5 +1,4 @@
-class Solution {
-    import java.util.HashMap;
+
 
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
@@ -25,5 +24,3 @@ class Solution {
     }
 }
 
-
-}
