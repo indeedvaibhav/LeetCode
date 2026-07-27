@@ -1,22 +1,29 @@
 class Solution {
+    import java.util.HashMap;
+
+class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
-    // Outer loop picks the starting element of the subarray
-    for (int i = 0; i < nums.length; i++) {
-        int sum = nums[i];
+        HashMap<Integer, Integer> map = new HashMap<>();
         
-        // Inner loop extends the subarray to the right
-        for (int j = i + 1; j < nums.length; j++) {
-            sum += nums[j];
+        map.put(0, -1); 
+        int runningSum = 0;
+        
+        for (int i = 0; i < nums.length; i++) {
+            runningSum += nums[i];
             
-            // Handle k = 0 to avoid division by zero
-            if (k == 0) {
-                if (sum == 0) return true;
+            int remainder = (k == 0) ? runningSum : runningSum % k;
+            
+            if (map.containsKey(remainder)) {
+                if (i - map.get(remainder) >= 2) {
+                    return true;
+                }
             } else {
-                if (sum % k == 0) return true;
+                map.put(remainder, i);
             }
         }
+        return false;
     }
-    return false;
 }
+
 
 }
