@@ -1,6 +1,6 @@
 class Solution {
     public String addStrings(String num1, String num2) {
-        int numA=0,numB=0;int x=0,y=0;
+        long numA=0,numB=0;long x=0,y=0;
         for(int i=num1.length()-1;i>=0;i--)
         {
             int ch= num1.charAt(i)-'0';
