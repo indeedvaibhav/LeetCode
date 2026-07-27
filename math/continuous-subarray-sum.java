@@ -1,20 +1,22 @@
 class Solution {
     public boolean checkSubarraySum(int[] nums, int k) {
+    // Outer loop picks the starting element of the subarray
+    for (int i = 0; i < nums.length; i++) {
+        int sum = nums[i];
         
-        boolean check=false;
-        for(int i=0;i<nums.length;i++)
-        {
-            int sum=0,len=0;
-            for(int j=0;j<i+1;j++)
-            {
-                sum+=nums[j];
-                len++;
-            }
-            if(sum%k==0 && len>=2) {
-                check = true;break;
+        // Inner loop extends the subarray to the right
+        for (int j = i + 1; j < nums.length; j++) {
+            sum += nums[j];
+            
+            // Handle k = 0 to avoid division by zero
+            if (k == 0) {
+                if (sum == 0) return true;
+            } else {
+                if (sum % k == 0) return true;
             }
         }
-        return check;
-        
     }
+    return false;
+}
+
 }
