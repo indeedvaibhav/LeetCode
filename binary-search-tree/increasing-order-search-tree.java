@@ -33,10 +33,10 @@ class Solution {
         else
             {
                 pred.right=node;
-                pred.left=null;
+                node.left=null;
             }
             pred=node;
-            pred.right==null;
+            
 
         inorder(node.right);
         return head;
