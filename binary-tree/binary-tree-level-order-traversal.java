@@ -13,43 +13,33 @@
  *     }
  * }
  */
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
-/**
- * Definition for a binary tree node.
- */
 class Solution {
     public List<List<Integer>> levelOrder(TreeNode root) {
-        List<List<Integer>> ans = new ArrayList<>(); 
+        
+        List<List<Integer>> result= new ArrayList<>();
+        if(root==null)
+            return result;
 
-        if (root == null) {
-            return ans;
-        }
+        Queue<TreeNode> queue= new LinkedList<>();
+        queue.offer(root);
 
-        Queue<TreeNode> Q = new LinkedList<>(); 
-        Q.add(root); 
-
-        while (!Q.isEmpty()) { 
-            
-            int level_size = Q.size();
-            List<Integer> curr_level = new ArrayList<>(); 
-
-            for (int i = 0; i < level_size; i++) {
-                TreeNode node = Q.poll();
-                curr_level.add(node.val); 
-
-                if (node.left != null) {
-                    Q.add(node.left);
+        while(!queue.isEmpty())
+        {
+            int levelSize= queue.size();
+            List<Integer> currentLevel= new ArrayList<>(levelSize);
+            for(int i=0;i<levelSize;i++) {
+                TreeNode currentNode = queue.poll();
+                currentLevel.add(currentNode.val);
+                if (currentNode.left != null) {
+                    queue.offer(currentNode.left);
                 }
-                if (node.right != null) {
-                    Q.add(node.right);
+                if (currentNode.right != null) {
+                    queue.offer(currentNode.right);
                 }
             }
-            ans.add(curr_level);
+            result.add(currentLevel);
         }
-        return ans;
+
+        return result;
     }
 }
