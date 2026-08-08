@@ -43,7 +43,7 @@ class Solution {
 
         return (node.left==x && node.right==y) || (node.left==y && node.right==x) || isSibling(node.right,x,y);
     }
-    public int level(TreeNode node,int x, int lvl)
+    public int level(TreeNode node,TreeNode x, int lvl)
     {
         if(node==null)
             return 0;
