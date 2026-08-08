@@ -14,7 +14,8 @@
  * }
  */
 class Solution {
-    List<List<Integer>> result= new ArrayList<>();
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> result= new ArrayList<>();
         if(root==null)
             return result;
 
@@ -52,4 +53,5 @@ class Solution {
                 result.add(currentLevel);
             }
             return result;
+    }
 }
