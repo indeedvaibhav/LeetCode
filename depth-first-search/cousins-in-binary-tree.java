@@ -36,7 +36,7 @@ class Solution {
         return findNode(node.right,x);
     }
 
-    boolean isSibling(TreeNode node, int x , int y)
+    boolean isSibling(TreeNode node, TreeNode x , TreeNode y)
     {
         if(node==null)
             return false;
