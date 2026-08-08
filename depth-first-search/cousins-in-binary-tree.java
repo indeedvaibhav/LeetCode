@@ -41,12 +41,15 @@ class Solution {
         if(node==null)
             return false;
 
-        return (node.left==x && node.right==y) || (node.left==y && node.right==x) || isSibling(node.right,x,y);
+        return (node.left==x && node.right==y) || (node.left==y && node.right==x) || isSibling(node.left,x,y)|| isSibling(node.right,x,y);
     }
     public int level(TreeNode node,TreeNode x, int lvl)
     {
         if(node==null)
             return 0;
+        
+        if(node==x)
+        return lev;
 
         int l=level(node.left, x, lvl+1);
         if(l!=0)
