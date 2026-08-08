@@ -55,9 +55,11 @@ class Solution {
                         queue.addFirst(currentNode.left);
                 }
 
-                reverse= !reverse;
-                result.add(0,currentLevel);
+                
             }
-            return result;
+            reverse= !reverse;
+            result.add(0,currentLevel);     
+        }
+        return result;
     }
 }
