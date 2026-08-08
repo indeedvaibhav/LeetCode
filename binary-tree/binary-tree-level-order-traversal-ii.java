@@ -57,7 +57,7 @@ class Solution {
 
                 
             }
-            reverse= !reverse;
+            
             result.add(0,currentLevel);     
         }
         return result;
