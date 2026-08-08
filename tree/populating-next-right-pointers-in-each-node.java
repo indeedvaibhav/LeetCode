@@ -29,7 +29,7 @@ class Solution {
         Node leftMost=root;
         while(leftMost.left!=null)
         {
-            Node current= root;
+            Node current= leftMost;
             while(current!=null)
             {
                 current.left.next= current.right;
