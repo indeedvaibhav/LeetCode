@@ -21,29 +21,43 @@ import java.util.Queue;
  */
 class Solution {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
-        List<List<Integer>> ans = new ArrayList<>();
-        if (root == null) {
-            return ans;
-        }
-        Queue<TreeNode> Q = new LinkedList<>();
-        Q.add(root);
-        while (!Q.isEmpty()) {
-            int level_size = Q.size();
-            List<Integer> curr_level = new ArrayList<>();
-            for (int i = 0; i < level_size; i++) {
-                TreeNode node = Q.poll();
-                curr_level.add(node.val);
-                if (node.left != null) {
-                    Q.add(node.left);
+        List<List<Integer>> result= new ArrayList<>();
+        if(root==null)
+            return result;
+
+        Deque<TreeNode> queue= new LinkedList<>();
+        queue.offer(root);
+        boolean reverse= false;
+
+        while(!queue.isEmpty())
+        {
+            int levelSize= queue.size();
+            List<Integer> currentLevel= new ArrayList<>(levelSize);
+            for(int i=0;i<levelSize;i++)
+            {
+                if(!reverse)
+                {
+                    TreeNode currentNode = queue.pollFirst();
+                    currentLevel.add(currentNode.val);
+                    if(currentNode.left!=null)
+                        queue.offer(currentNode.left);
+                    if(currentNode.right!=null)
+                        queue.offer(currentNode.right);
+
                 }
-                if (node.right != null) {
-                    Q.add(node.right);
+                else {
+                    TreeNode currentNode = queue.pollLast();
+                    currentLevel.add(currentNode.val);
+
+                    if(currentNode.right!=null)
+                        queue.addFirst(currentNode.right);
+                    if(currentNode.left!=null)
+                        queue.addFirst(currentNode.left);
                 }
+
+                reverse= !reverse;
+                result.add(0,currentLevel);
             }
-            ans.add(curr_level);
-        }
-        // Reverse the list in-place after the traversal is complete
-        Collections.reverse(ans);
-        return ans;
+            return result;
     }
 }
