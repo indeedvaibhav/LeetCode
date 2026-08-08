@@ -18,10 +18,8 @@ class Solution {
         TreeNode xx = findNode(root, x);
         TreeNode yy = findNode(root, y);
         
-        // Fix 2: Safety check to make sure both nodes exist in the tree
         if (xx == null || yy == null) return false;
         
-        // Fix 1: Cousins must be on the same level AND must NOT be siblings (!isSibling)
         return (level(root, xx, 0) == level(root, yy, 0)) && !isSibling(root, xx, yy);
     }
 
