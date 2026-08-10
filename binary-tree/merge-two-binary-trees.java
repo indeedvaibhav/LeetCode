@@ -14,20 +14,24 @@
  * }
  */
 class Solution {
-        
+    
+
     public TreeNode mergeTrees(TreeNode root1, TreeNode root2) {
-        if(root1==null && root2==null)
-        return null;
-        TreeNode ans = new TreeNode();
-        if(root1 == null) ans.val= root2.val;
-        if(root2 == null) ans.val= root1.val;
+        TreeNode value;
+        if (root1 == null && root2 == null)
+            return null;
 
-        ans.val = root1.val + root2.val;
-        ans.left = mergeTrees(root1.left, root2.left);
-        ans.right = mergeTrees(root1.right, root2.right);
+        else if (root1 == null)
+            return root2;
+        else if (root2 == null)
+            return root1;
+        else {
 
-        
-
-        return ans;
-    }
+            value = new TreeNode();
+            value.val = root1.val + root2.val;
+            value.left = mergeTrees(root1.left, root2.left);
+            value.right = mergeTrees(root1.right, root2.right);
+        }
+        return value;
+}
 }
