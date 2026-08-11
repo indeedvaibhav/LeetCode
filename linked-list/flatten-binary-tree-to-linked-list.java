@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    TreeNode head = null, pred = null;
+    
 
     public void flatten(TreeNode root) {
        
