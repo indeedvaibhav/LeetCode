@@ -7,12 +7,12 @@ class Solution {
             String s= sentences[i];
             for(int j=0;j<s.length();j++)
             {
-                if(s.charAt(i)==' ')
+                if(s.charAt(j)==' ')
                 count++;
             }
             maxCount= Math.max(maxCount,count);
         }
-        return maxCount;
+        return maxCount+1;
         
     }
 }
