@@ -17,11 +17,10 @@ class Solution {
     public boolean findTarget(TreeNode root, int k) {
         
         ArrayList<Integer> ans = inorderArray(root);
-        if(ans.size()==1 && ans.get(0)!=k)return false;
         int first=0;
         int second= ans.size()-1;
 
-        for(int i =0;i<ans.size();i++)
+        while(first<second)
         {
             if((ans.get(first)+ans.get(second)==k))
                 return true;
