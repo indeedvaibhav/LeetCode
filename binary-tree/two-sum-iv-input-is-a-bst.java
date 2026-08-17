@@ -15,7 +15,9 @@
  */
 class Solution {
     public boolean findTarget(TreeNode root, int k) {
+        
         ArrayList<Integer> ans = inorderArray(root);
+        if(ans.size()==1 && ans.get(0)!=k)return false;
         int first=0;
         int second= ans.size()-1;
 
