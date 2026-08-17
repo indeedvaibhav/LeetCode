@@ -16,13 +16,12 @@
 class Solution {
     public int rangeSumBST(TreeNode root, int low, int high) {
         ArrayList<Integer> ans = inorderArray(root);
-        int i=0;
-        while(ans.get(i)!=low)
-            i++;
+       
         int sum=0;
-        while(ans.get(i)<=high)
+        for(int i=0;i<ans.size();i++)
         {
-            sum+=ans.get(i);i++;
+            if(ans.get(i)>=low && ans.get(i)<=high)
+                sum+=ans.get(i);
         }
         return sum;
 
