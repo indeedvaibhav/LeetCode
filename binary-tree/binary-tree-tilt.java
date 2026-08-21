@@ -13,18 +13,21 @@
  *     }
  * }
  */
-class Solution {
-    int ans=0,leftSum=0,rightSum=0;
+class Solution { 
+    int totaltilt=0;
     public int findTilt(TreeNode root) {
-        return calcSum(root);
+        totaltilt(root);
+        return totaltilt;
+            
     }
-
-    public int calcSum(TreeNode node)
+    public int totaltilt(TreeNode root)
     {
-        leftSum = calcSum(node.left);
-        rightSum= calcSum(node.right);
-        int tilt = Math.abs(leftSum-rightSum);
-        ans+=tilt;
-        return leftSum+rightSum+node.val;
+        if(root==null)
+            return 0;
+        int leftSum= totaltilt(root.left);
+        int rightSum= totaltilt(root.right);
+        totaltilt+= Math.abs(leftSum-rightSum);
+
+        return leftSum+rightSum+root.val;
     }
 }
