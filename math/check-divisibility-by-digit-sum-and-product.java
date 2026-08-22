@@ -7,9 +7,9 @@ class Solution {
         
         
     }
-    public int sumOfdigits(int num)
+    public int sumOfdigits(int temp)
     {
-        int temp=num;
+
         int sum=0;
         while(temp!=0)
         {
@@ -19,9 +19,9 @@ class Solution {
         }
         return sum;
     }
-    public int prodOfdigits(int num)
+    public int prodOfdigits(int temp)
     {
-         int prod=1,temp=num;
+         int prod=1;
         while(temp!=0)
         {
             int x=temp%10;
