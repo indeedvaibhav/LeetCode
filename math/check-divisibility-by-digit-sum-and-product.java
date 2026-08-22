@@ -2,8 +2,8 @@ class Solution {
     public boolean checkDivisibility(int n) {
         int x= sumOfdigits(n);
         int y= prodOfdigits(n);
-
-        return (x+y)%n==0;
+        
+        return n%(x+y)==0;
         
         
     }
