@@ -7,7 +7,7 @@ class Solution {
         {
             set.add(num);
         }
-        for(int i=1;i<x;i++)
+        for(int i=1;;i++)
         {
              int val= k*i;
             if(!set.contains(val) && val%k==0)
