@@ -32,8 +32,18 @@ class Solution {
             Node current= leftMost;
             while(current!=null)
             {
-                if(current.left!=null)
-                    current.left.next= current.right;
+                if(current.left!=null){
+                    if(current.right!=null)
+                        current.left.next= current.right;
+                    else
+                    {
+                        if(current.next.left!=null)
+                            current.left.next= current.next.left;
+                        else if(current.next.right!=null)
+                            current.left.next=current.next.right;
+                    }
+                }
+                    
                 if(current.next!=null){
                     if(current.next.left!=null)
                         current.right.next= current.next.left;
