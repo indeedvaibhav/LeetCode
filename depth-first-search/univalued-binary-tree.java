@@ -25,7 +25,7 @@ class Solution {
         if(node==null) return true;
         if(node.val!=value) return false;
 
-        return check(node.left,value) == check(node.right,value);
+        return check(node.left,value) && check(node.right,value);
         
     }
 }
