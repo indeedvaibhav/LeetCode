@@ -13,15 +13,44 @@
  *     }
  * }
  */
-class Solution {
-    int count=0;
-    public int countNodes(TreeNode root) {
-        if(root==null) return count;
-        count++;
-        countNodes(root.left) ;
-        countNodes(root.right);
-        return count ;
-        
 
+class Solution {
+    
+    public int countNodes(TreeNode root) {
+        if(root==null) return 0;
+
+
+        int leftH = leftheight(root.left);
+        int rightH = rightheight(root.right);
+        if(leftH==rightH)
+            return (int)Math.pow(2,leftH+1)-1;
+
+        return countNodes(root.left) + countNodes(root.right) +1;
+        
     }
+    public int leftheight(TreeNode node){
+
+    int height = 0;
+
+    while(node!=null)
+        {
+            height++;
+            node = node.left;
+        }
+
+    return height;
+    }
+    public int rightheight(TreeNode node){
+
+    int height = 0;
+
+    while(node!=null)
+        {
+            height++;
+            node = node.right;
+        }
+
+    return height;
+    }
+
 }
