@@ -1,17 +1,27 @@
 class Solution {
     public int[] minOperations(String boxes) {
         int[] ans = new int[boxes.length()];
+        int count = 0 , operation= 0;
 
-        for (int i = 0; i < boxes.length(); i++) {
+        for(int i =0 ; i<boxes.length();i++)
+        {
+            ans[i]  += operation;
+            if(boxes.charAt(i)=='1')
+                count++;
             
-            for (int j = 0; j < boxes.length(); j++) {
+            operation += count;
+        }
 
-                if (Math.abs(i - j) == 1 && boxes.charAt(j) != '0')
-                    ans[i] += 1;
-                else if (Math.abs(i - j) > 1 && boxes.charAt(j) != '0')
-                    ans[i] += Math.abs(j-i);
-            }
+         count = 0 ; operation= 0;
+
+        for(int i =boxes.length()-1 ; i>=0;i--)
+        {
+            ans[i]  += operation;
+            if(boxes.charAt(i)=='1')
+                count++;
+            
+            operation += count;
         }
         return ans;
     }
-}
+} 
