@@ -17,23 +17,25 @@ class Solution {
     int count=0;
     public int pathSum(TreeNode root, int targetSum) {
         if(root==null) return 0;
+
+        dfs(root,targetSum,0);
+
         pathSum(root.left,targetSum);
         pathSum(root.right,targetSum);
 
-        return dfs(root,targetSum,0);
-
+        return count;
     }
     
-    public int dfs(TreeNode root, int targetSum,int currentSum){
+    public void dfs(TreeNode root, int targetSum,int currentSum){
 
-        if(root==null) return 0;
-        if(targetSum==0) return 0;
-        TreeNode curr = root;
-        currentSum+= curr.val;
+        if(root==null) return;
+
+        
+        currentSum += root.val;
         if(currentSum==targetSum) count++;
         dfs(root.left,targetSum,currentSum);
         dfs(root.right,targetSum,currentSum);
 
-       return count;
     }
 }
+
