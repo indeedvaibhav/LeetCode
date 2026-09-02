@@ -27,7 +27,7 @@ class Solution {
     public int dfs(TreeNode root, int targetSum,int currentSum){
 
         if(root==null) return 0;
-
+        if(targetSum==0) return 0;
         TreeNode curr = root;
         currentSum+= curr.val;
         if(currentSum==targetSum) count++;
