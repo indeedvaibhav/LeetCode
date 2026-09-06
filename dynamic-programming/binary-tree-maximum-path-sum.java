@@ -25,10 +25,11 @@ class Solution {
 
         int left = helper(root.left);
         int right= helper(root.right);
-        int pathSum = left + right + root.val;
-
         left = Math.max(0, left);
         right = Math.max(0,right);
+        int pathSum = left + right + root.val;
+
+        
         ans= Math.max(ans, pathSum);
 
         return Math.max(left, right) + root.val;
