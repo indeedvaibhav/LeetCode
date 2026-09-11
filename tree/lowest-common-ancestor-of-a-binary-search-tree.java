@@ -17,7 +17,7 @@ class Solution {
             return lowestCommonAncestor(curr.left, p,q);
         else if(curr.val > p.val && curr.val > q.val)
             return lowestCommonAncestor(curr.left, p,q);
-        return curr;
+        else return curr;
         
     }
 }
