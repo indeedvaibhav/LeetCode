@@ -16,10 +16,13 @@
 class Solution {
     public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
 
-        List<Integer> list1 = inorder(root1);
-        List<Integer> list2 = inorder(root2);
+        List<Integer> list1 = new ArrayList<>();
+        List<Integer> list2 = new ArrayList<>();
+
+        inorder(root1, list1);
+        inorder(root2, list2);
         List<Integer> ans = new ArrayList<>();
-        
+
         int i = 0, j = 0;
 
         while (i < list1.size() && j < list2.size()) {
@@ -46,10 +49,11 @@ class Solution {
     }
 
     public void inorder(TreeNode root, List<Integer> list) {
-    if (root == null) return;
+        if (root == null)
+            return;
 
-    inorder(root.left, list);
-    list.add(root.val);
-    inorder(root.right, list);
-   }
+        inorder(root.left, list);
+        list.add(root.val);
+        inorder(root.right, list);
+    }
 }
