@@ -18,26 +18,45 @@ class Solution {
 
         List<Integer> list1 = inorder(root1);
         List<Integer> list2 = inorder(root2);
-        List<Integer> ans  = new ArrayList<>();
-        ans.addAll(list1);
-        ans.addAll(list2);
-        Collections.sort(ans);
-        return ans;
+        List<Integer> ans = new ArrayList<>();
         
+        int i = 0, j = 0;
+
+        while (i < list1.size() && j < list2.size()) {
+            if (list1.get(i) <= list2.get(j)) {
+                ans.add(list1.get(i));
+                i++;
+            } else {
+                ans.add(list2.get(j));
+                j++;
+            }
+        }
+
+        while (i < list1.size()) {
+            ans.add(list1.get(i));
+            i++;
+        }
+
+        while (j < list2.size()) {
+            ans.add(list2.get(j));
+            j++;
+        }
+        return ans;
+
     }
-    public List<Integer> inorder(TreeNode root){
-        if(root==null) 
-        return new ArrayList<>();
+
+    public List<Integer> inorder(TreeNode root) {
+        if (root == null)
+            return new ArrayList<>();
 
         List<Integer> ans = new ArrayList<>();
         List<Integer> left = inorder(root.left);
-        ans.add(root.val);
         List<Integer> right = inorder(root.right);
 
         ans.addAll(left);
+        ans.add(root.val);
         ans.addAll(right);
         return ans;
-
 
     }
 }
