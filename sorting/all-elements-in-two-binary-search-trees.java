@@ -45,18 +45,11 @@ class Solution {
 
     }
 
-    public List<Integer> inorder(TreeNode root) {
-        if (root == null)
-            return new ArrayList<>();
+    public void inorder(TreeNode root, List<Integer> list) {
+    if (root == null) return;
 
-        List<Integer> ans = new ArrayList<>();
-        List<Integer> left = inorder(root.left);
-        List<Integer> right = inorder(root.right);
-
-        ans.addAll(left);
-        ans.add(root.val);
-        ans.addAll(right);
-        return ans;
-
-    }
+    inorder(root.left, list);
+    list.add(root.val);
+    inorder(root.right, list);
+   }
 }
