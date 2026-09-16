@@ -7,6 +7,10 @@ class Solution {
             int indx = index[i];
             target.add(indx, nums[i]);
         }
-        return target.stream().mapToInt(Integer::intValue).toArray();
+        int[] ans = new int[nums.length];
+        for(int i=0; i<target.size(); i++){
+            ans[i] = target.get(i);
+        }
+        return ans;
     }
 }
