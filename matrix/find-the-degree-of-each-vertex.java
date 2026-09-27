@@ -1,15 +1,15 @@
 class Solution {
     public int[] findDegrees(int[][] matrix) {
+        int[] ans = new int[matrix[0].length];
         
-        List<Integer> ans = new ArrayList<>();
         for(int i = 0; i< matrix.length ; i++){
             int sum = 0;
             for(int j=0 ; j<matrix[0].length ; j++){
 
                 sum += matrix[i][j];
             }
-            ans.add(sum);
+            ans[i] = sum;
         }
-        return ans.stream().mapToInt(Integer::intValue).toArray();
+        return ans;
     }
 }
