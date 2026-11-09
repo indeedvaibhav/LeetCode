@@ -1,39 +1,39 @@
 class Solution {
     public int firstStableIndex(int[] nums, int k) {
+        int n = nums.length;
+        if (n == 0) return -1;
 
-        for(int i = 0; i < nums.length; i++)
-        {
-            int max = getMax(nums, 0, i);
-            int min = getMin(nums, i, nums.length - 1);
+        int[] prefixMax = buildPrefixMax(nums);
+        int[] suffixMin = buildSuffixMin(nums);
 
-            if((max - min) <= k) 
+        for (int i = 0; i < n; i++) {
+            if ((long) prefixMax[i] - suffixMin[i] <= k) {
                 return i;
+            }
         }
 
         return -1;
     }
 
-    public int getMax(int[] nums, int start, int end) {
-        int max = Integer.MIN_VALUE;
+    private int[] buildPrefixMax(int[] nums) {
+        int[] prefixMax = new int[nums.length];
+        prefixMax[0] = nums[0];
 
-        for(int i = start; i <= end; i++)
-        {
-            if(nums[i] > max)
-                max = nums[i];
+        for (int i = 1; i < nums.length; i++) {
+            prefixMax[i] = Math.max(prefixMax[i - 1], nums[i]);
         }
 
-        return max;
+        return prefixMax;
     }
 
-    public int getMin(int[] nums, int start, int end) {
-        int min = Integer.MAX_VALUE;
+    private int[] buildSuffixMin(int[] nums) {
+        int[] suffixMin = new int[nums.length];
+        suffixMin[nums.length - 1] = nums[nums.length - 1];
 
-        for(int i = start; i <= end; i++)
-        {
-            if(nums[i] < min)
-                min = nums[i];
+        for (int i = nums.length - 2; i >= 0; i--) {
+            suffixMin[i] = Math.min(suffixMin[i + 1], nums[i]);
         }
 
-        return min;
+        return suffixMin;
     }
 }
